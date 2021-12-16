@@ -5,17 +5,15 @@ description:
 maintainer: "Thierry Martinez <martinez@nsup.org>"
 authors: "Thierry Martinez <martinez@nsup.org>"
 license: "BSD-2-Clause"
-homepage: "https://github.com/thierry-martinez/stdcompat"
-bug-reports: "https://github.com/thierry-martinez/stdcompat/issues"
+homepage: "https://github.com/dune-universe/stdcompat"
+bug-reports: "https://github.com/dune-universe/stdcompat/issues"
 depends: [
   "ocaml" {>= "3.07" & < "4.14.0"}
 ]
-depopts: [ "result" "seq" "uchar" "ocamlfind" ]
+depopts: [ "result" "seq" "uchar" ]
 build: [
-  [make "-f" "Makefile.bootstrap" "-j" jobs]
-  ["./configure" "--prefix=%{prefix}%"]
-  [make "all" "test" {with-test}]
+  ["dune" "subst"] {pinned}
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name "-j" jobs] {with-test}
 ]
-install: [make "install"]
-dev-repo: "git+https://github.com/thierry-martinez/stdcompat.git"
-version: "16"
+dev-repo: "git+https://github.com/dune-universe/stdcompat.git"
