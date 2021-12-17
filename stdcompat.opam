@@ -9,6 +9,8 @@ homepage: "https://github.com/dune-universe/stdcompat"
 bug-reports: "https://github.com/dune-universe/stdcompat/issues"
 depends: [
   "ocaml" {>= "3.07" & < "4.14.0"}
+  "dune" {>= "1.11"}
+  "odoc" {with-doc}
 ]
 depopts: [ "result" "seq" "uchar" ]
 build: [
