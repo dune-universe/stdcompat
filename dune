@@ -2,6 +2,10 @@
  (name stdcompat)
  (public_name stdcompat)
  (flags (:standard -nolabels))
+ (install_c_headers stdcompat)
+ (foreign_stubs
+  (language c)
+  (names stdcompat__stubs))
  (modules
    stdcompat__arg
    stdcompat__arg_s
@@ -288,6 +292,7 @@
  (targets
   META
   Makefile
+  stdcompat.h
   stdcompat__native.ml_byte
   stdcompat__native.ml_native
   stdcompat.ml
