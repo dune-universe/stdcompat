@@ -114,10 +114,10 @@
  (libraries stdcompat))
 
 (rule
- (action (copy stdcompat__native.ml_native stdcompat__native.ml)))
+ (copy stdcompat__native.ml_native stdcompat__native.ml))
 
 (rule
- (action (copy stdcompat__init.mli.in stdcompat__init.ml.in)))
+ (copy stdcompat__init.mli.in stdcompat__init.ml.in))
 
 (rule
  (targets
