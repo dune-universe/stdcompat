@@ -124,7 +124,9 @@
  (action (copy %{deps} %{target})))
 
 (rule
- (target configure)
+ (targets
+   configure
+   install-sh)
  (deps
   META.in
   Makefile.am
@@ -495,5 +497,6 @@
   stdcompat__weak.mli
   stdcompat__weak_s.ml
   stdcompat__weak_s.mli)
-  (deps (:configure configure))
+  (deps (:configure configure)
+        install-sh)
   (action (run %{configure})))
