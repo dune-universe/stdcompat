@@ -114,17 +114,15 @@
  (libraries stdcompat))
 
 (rule
- (target stdcompat__native.ml)
- (deps stdcompat__native.ml_native)
- (action (copy %{deps} %{target})))
+ (copy stdcompat__native.ml_native stdcompat__native.ml))
 
 (rule
- (target stdcompat__init.ml.in)
- (deps stdcompat__init.mli.in)
- (action (copy %{deps} %{target})))
+ (copy stdcompat__init.mli.in stdcompat__init.ml.in))
 
 (rule
- (target configure)
+ (targets
+   configure
+   install-sh)
  (deps
   META.in
   Makefile.am
@@ -495,5 +493,6 @@
   stdcompat__weak.mli
   stdcompat__weak_s.ml
   stdcompat__weak_s.mli)
-  (deps (:configure configure))
+  (deps (:configure configure)
+        install-sh)
   (action (run %{configure})))
